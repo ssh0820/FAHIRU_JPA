@@ -1,5 +1,5 @@
 package project.fahiru.domain;
 
 public enum CategoryName {
-    FAH,TRENDY_FOOD,COOk,SPOT
+    FAH, TRENDY_FOOD, COOK, SPOT
 }
