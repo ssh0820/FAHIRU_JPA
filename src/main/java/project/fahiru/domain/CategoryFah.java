@@ -3,30 +3,28 @@ package project.fahiru.domain;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.sql.Timestamp;
+import javax.persistence.ManyToOne;
 
 @Entity
 @RequiredArgsConstructor
 @Getter
-public class Score {
+public class CategoryFah {
 
     @Id @GeneratedValue
     private int no;
 
-    private int categoryNo;
+    @ManyToOne
+    private Category category;
 
-    private int userNo;
+    @ManyToOne
+    private Fahes fahes;
 
     private int postNo;
 
-    private String code;
-
-    private Timestamp regdate;
-
-    private double tasteResult;
-
-    private double platingResult;
+    @Embedded
+    private RegistInformation registInformation;
 }

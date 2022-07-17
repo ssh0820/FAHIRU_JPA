@@ -3,25 +3,20 @@ package project.fahiru.domain;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
 @RequiredArgsConstructor
 @Getter
-public class UserForSearch {
-
-    public static final String LOGIN_USER = "loginUser";
+public class Users {
 
     @Id @GeneratedValue
+    @Column(name = "user_no")
     private int no;
-
-    private int totalCnt;
-
-    private int followCnt;
 
     private String email;
 
@@ -31,11 +26,10 @@ public class UserForSearch {
 
     private String gender;
 
+    private Date birthDate;
+
     private String message;
 
     private String profileImg;
 
-    private Timestamp regdate;
-
-    private Date birthDate;
 }
