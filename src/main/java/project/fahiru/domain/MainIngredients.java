@@ -23,6 +23,6 @@ public class MainIngredients {
     private int no;
 
     @OneToMany(mappedBy = "mainIngredients")
-    @JoinColumn(name = "tr")
+    @JoinColumn(name = "cook_no")
     private List<CooksDetail> detailList = new ArrayList<>();
 }
