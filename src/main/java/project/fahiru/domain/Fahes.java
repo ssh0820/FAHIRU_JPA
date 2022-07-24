@@ -11,6 +11,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @RequiredArgsConstructor
@@ -29,12 +32,9 @@ public class Fahes {
     private RegistInformation registInformation;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Category category;
-
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Users users;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private FahesImg fahesImg;
+    @OneToMany(mappedBy = "fahes")
+    private List<CategoryFah> CategoryFah = new ArrayList<>();
 
 }

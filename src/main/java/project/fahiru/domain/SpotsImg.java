@@ -29,8 +29,5 @@ public class SpotsImg {
     @Embedded
     private RegistInformation registInformation;
 
-    @OneToMany(mappedBy = "spotImg")
-    @JoinColumn(name = "spot_no")
-    private List<Spots> spotsList = new ArrayList<>();
 
 }

@@ -4,7 +4,6 @@ package project.fahiru.domain;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Embedded;
@@ -30,12 +29,6 @@ public class TrendyFoodCook {
     private int score;
 
     private String name;
-
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private TrendyFoodCookImg trendyFoodCookImg;
-
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Category category;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Users users;

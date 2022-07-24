@@ -8,10 +8,6 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @RequiredArgsConstructor
@@ -29,7 +25,4 @@ public class FahesImg {
     @Embedded
     private RegistInformation registInformation;
 
-    @OneToMany(mappedBy = "fahesImg")
-    @JoinColumn(name = "fah_no")
-    private List<Fahes> fahesList = new ArrayList<>();
 }

@@ -9,6 +9,9 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @RequiredArgsConstructor
@@ -32,12 +35,15 @@ public class CookDetail extends TrendyFoodCook{
     private RegistInformation registInformation;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private MainIngredients mainIngredients;
+    private Category category;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private SourceIngredients sourceIngredients;
+    @OneToMany(mappedBy = "cookDetail")
+    private List<MainIngredients> mainIngredientsList = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Step step;
+    @OneToMany(mappedBy = "cookDetail")
+    private List<SourceIngredients> sourceIngredientsList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "cookDetail")
+    private List<Step> stepList = new ArrayList<>();
 
 }

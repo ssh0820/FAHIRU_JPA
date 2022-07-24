@@ -3,8 +3,10 @@ package project.fahiru.domain;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -17,14 +19,14 @@ public class CategoryFah {
     @Id @GeneratedValue
     private int no;
 
-    @ManyToOne
-    private Category category;
-
-    @ManyToOne
-    private Fahes fahes;
-
     private int postNo;
 
     @Embedded
     private RegistInformation registInformation;
+
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private Category category;
+
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private Fahes fahes;
 }

@@ -3,6 +3,7 @@ package project.fahiru.domain;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,9 +21,9 @@ public class TendScore {
 
     private int score;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Fahes fahes;
-
     @Embedded
     private RegistInformation registInformation;
+
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private Fahes fahes;
 }

@@ -10,7 +10,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @RequiredArgsConstructor
@@ -35,7 +38,7 @@ public class Users {
 
     private String profileImg;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Follow follow;
+    @OneToMany(mappedBy = "users")
+    private List<Follow> followList = new ArrayList<>();
 
 }

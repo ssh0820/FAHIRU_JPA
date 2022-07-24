@@ -23,12 +23,12 @@ public class Score {
 
     private String code;
 
+    @Embedded
+    private RegistInformation registInformation;
+
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Category category;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Users users;
-
-    @Embedded
-    private RegistInformation registInformation;
 }
