@@ -19,7 +19,6 @@ public class SttusList {
     //구독, 좋아요, 버킷리스트, 허니팁
 
     @Id @GeneratedValue
-    @Column(name = "sttus_no")
     private Long no;
 
     private Long postNo;
