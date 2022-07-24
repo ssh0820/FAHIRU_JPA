@@ -1,14 +1,10 @@
 package project.fahiru.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import project.fahiru.domain.Fahes;
 
 @Repository
-public class FahesRepository {
-
-    @PersistenceContext
-    private EntityManager em;
+public interface FahesRepository extends JpaRepository<Fahes, Long> {
 
 }
