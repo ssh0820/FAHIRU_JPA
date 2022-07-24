@@ -46,4 +46,7 @@ public class Spots {
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private SpotsImg spotsImg;
+
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private FoodDetail foodDetail;
 }

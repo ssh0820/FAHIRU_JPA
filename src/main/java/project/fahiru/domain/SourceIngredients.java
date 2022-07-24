@@ -3,6 +3,7 @@ package project.fahiru.domain;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -23,7 +24,10 @@ public class SourceIngredients {
 
     private Unit unit;
 
+    @Embedded
+    private RegistInformation registInformation;
+
     @OneToMany(mappedBy = "sourceIngredients")
     @JoinColumn(name = "cook_no")
-    private List<CooksDetail> cooksDetailList = new ArrayList<>();
+    private List<CookDetail> cookDetailList = new ArrayList<>();
 }

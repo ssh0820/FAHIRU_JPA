@@ -7,23 +7,22 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.ManyToOne;
 
 @Entity
 @RequiredArgsConstructor
 @Getter
-public class MainIngredients {
+public class FoodDetail {
 
     @Id @GeneratedValue
     private int no;
 
+    private int price;
+
+    private Taste taste;
+
+    private Plating plating;
+
     @Embedded
     private RegistInformation registInformation;
-
-    @OneToMany(mappedBy = "mainIngredients")
-    @JoinColumn(name = "cook_no")
-    private List<CookDetail> detailList = new ArrayList<>();
 }

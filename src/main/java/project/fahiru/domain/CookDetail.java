@@ -12,9 +12,9 @@ import javax.persistence.ManyToOne;
 
 @Entity
 @RequiredArgsConstructor
-@DiscriminatorValue("Cook")
+@DiscriminatorValue("COOK")
 @Getter
-public class CooksDetail extends TrendyFoodCook{
+public class CookDetail extends TrendyFoodCook{
 
     private String cookTime;
 
@@ -36,5 +36,8 @@ public class CooksDetail extends TrendyFoodCook{
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private SourceIngredients sourceIngredients;
+
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private Step step;
 
 }

@@ -31,7 +31,7 @@ public class Fahes {
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Category category;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Users users;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
