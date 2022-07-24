@@ -3,13 +3,10 @@ package project.fahiru.domain;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,7 +35,10 @@ public class Users {
 
     private String profileImg;
 
-    @OneToMany(mappedBy = "users")
-    private List<Follow> followList = new ArrayList<>();
+    @OneToMany(mappedBy = "folloingUsers")
+    private List<Follow> folloingList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "followerUsers")
+    private List<Follow> followerList = new ArrayList<>();
 
 }

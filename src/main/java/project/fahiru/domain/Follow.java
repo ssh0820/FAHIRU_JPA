@@ -22,13 +22,12 @@ public class Follow {
     @Id @GeneratedValue
     private int no;
 
-    private int folloingUserNo;
-
-    private int followerUserNo;
-
     @Embedded
     private RegistInformation registInformation;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Users users;
+    private Users folloingUsers;
+
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private Users followerUsers;
 }
