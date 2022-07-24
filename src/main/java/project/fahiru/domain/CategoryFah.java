@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,9 +18,10 @@ import javax.persistence.ManyToOne;
 public class CategoryFah {
 
     @Id @GeneratedValue
-    private int no;
+    @Column(name = "catecory_fah_no")
+    private Long no;
 
-    private int postNo;
+    private Long postNo;
 
     @Embedded
     private RegistInformation registInformation;

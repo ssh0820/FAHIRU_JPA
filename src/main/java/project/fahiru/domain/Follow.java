@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.apache.catalina.User;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,7 +21,8 @@ import javax.persistence.ManyToOne;
 public class Follow {
 
     @Id @GeneratedValue
-    private int no;
+    @Column(name = "follow_no")
+    private Long no;
 
     @Embedded
     private RegistInformation registInformation;

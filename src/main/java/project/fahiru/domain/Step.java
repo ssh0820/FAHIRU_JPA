@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,8 @@ import java.util.List;
 public class Step {
 
     @Id @GeneratedValue
-    private int no;
+    @Column(name = "step_no")
+    private Long no;
 
     private String cookStepImg;
 

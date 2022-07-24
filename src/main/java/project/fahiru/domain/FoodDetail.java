@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -21,10 +22,7 @@ import java.util.List;
 @Getter
 public class FoodDetail extends TrendyFoodCook{
 
-    @Id @GeneratedValue
-    private int no;
-
-    private int price;
+    private Long price;
 
     private Taste taste;
 

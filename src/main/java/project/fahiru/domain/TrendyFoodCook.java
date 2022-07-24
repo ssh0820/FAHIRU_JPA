@@ -24,9 +24,9 @@ public class TrendyFoodCook {
 
     @Id @GeneratedValue
     @Column(name = "cook_no")
-    private int no;
+    private Long no;
 
-    private int score;
+    private Long score;
 
     private String name;
 

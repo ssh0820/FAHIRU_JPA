@@ -22,7 +22,7 @@ public class Spots {
 
     @Id @GeneratedValue
     @Column(name = "spot_no")
-    private int no;
+    private Long no;
 
     private String name;
 

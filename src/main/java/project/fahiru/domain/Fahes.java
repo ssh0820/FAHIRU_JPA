@@ -22,7 +22,7 @@ public class Fahes {
 
     @Id @GeneratedValue
     @Column(name = "fah_no")
-    private int no;
+    private Long no;
 
     private String name;
 

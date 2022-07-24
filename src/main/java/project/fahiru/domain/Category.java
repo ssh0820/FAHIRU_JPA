@@ -19,7 +19,7 @@ public class Category {
 
     @Id @GeneratedValue
     @Column(name = "category_no")
-    private int no;
+    private Long no;
 
     @Column(name = "name")
     private CategoryName categoryName;

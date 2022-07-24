@@ -19,7 +19,7 @@ public class Users {
 
     @Id @GeneratedValue
     @Column(name = "user_no")
-    private int no;
+    private Long no;
 
     private String email;
 

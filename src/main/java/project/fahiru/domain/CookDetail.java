@@ -21,7 +21,7 @@ public class CookDetail extends TrendyFoodCook{
 
     private String cookTime;
 
-    private int cookAmount;
+    private Long cookAmount;
 
     private String openAccept;
 

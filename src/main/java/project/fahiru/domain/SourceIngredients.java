@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,7 +18,8 @@ import javax.persistence.ManyToOne;
 public class SourceIngredients {
 
     @Id @GeneratedValue
-    private int no;
+    @Column(name = "source_no")
+    private Long no;
 
     private String name;
 

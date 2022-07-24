@@ -16,7 +16,7 @@ public class FahesImg {
     @Id
     @GeneratedValue
     @Column(name = "img_no")
-    private int no;
+    private Long no;
 
     private String img;
 

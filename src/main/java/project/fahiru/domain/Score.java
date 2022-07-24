@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,9 +18,10 @@ import javax.persistence.ManyToOne;
 public class Score {
 
     @Id @GeneratedValue
-    private int no;
+    @Column(name = "score_no")
+    private Long no;
 
-    private int postId;
+    private Long postNo;
 
     private String code;
 
