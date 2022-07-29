@@ -16,7 +16,7 @@ public class FahesApiController {
 
     FahesRepository fahesRepository;
 
-    @GetMapping("/fahes")
+    @GetMapping("/api/fahesList")
     public String list(Model model) {
         List<Fahes> fahesList = fahesRepository.findAll();
         model.addAttribute("fahesList", fahesList);
