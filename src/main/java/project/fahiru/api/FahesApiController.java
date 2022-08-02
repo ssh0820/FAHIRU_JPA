@@ -26,7 +26,7 @@ public class FahesApiController {
     }
 
     @PostMapping("/api/fahes")
-    public String insertFah(Fahes fahes){
+    public String saveFah(Fahes fahes){
         fahesRepository.save(fahes);
         return "redirect:/fahesList";
     }
