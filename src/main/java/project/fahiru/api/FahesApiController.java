@@ -6,11 +6,9 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project.fahiru.domain.Fahes;
 import project.fahiru.repository.FahesRepository;
-import project.fahiru.service.FahesService;
 
 import java.util.List;
 
