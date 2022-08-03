@@ -37,4 +37,9 @@ public class Fahes {
     @OneToMany(mappedBy = "fahes")
     private List<CategoryFah> CategoryFah = new ArrayList<>();
 
+    //fahes 수정 생성자( name, explanation )
+    public Fahes(String name, String explanation){
+        this.name = name;
+        this.explanation = explanation;
+    }
 }
