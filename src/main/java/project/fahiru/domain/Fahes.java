@@ -2,6 +2,7 @@ package project.fahiru.domain;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,7 +18,7 @@ import java.util.List;
 
 @Entity
 @RequiredArgsConstructor
-@Getter
+@Getter @Setterrf
 public class Fahes {
 
     @Id @GeneratedValue
