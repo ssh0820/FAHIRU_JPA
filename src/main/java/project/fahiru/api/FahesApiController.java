@@ -4,11 +4,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project.fahiru.domain.Fahes;
 import project.fahiru.repository.FahesRepository;
+import project.fahiru.service.FahesService;
 
 import java.util.List;
 
@@ -18,23 +21,42 @@ public class FahesApiController {
 
     FahesRepository fahesRepository;
 
+    FahesService fahesService;
+
     @GetMapping("/api/fahesList")
     public String list(Model model) {
         List<Fahes> fahesList = fahesRepository.findAll();
         model.addAttribute("fahesList", fahesList);
-        return "fahes/fahesList";
+        return "fahesList";
     }
 
     @PostMapping("/api/fahes")
     public String saveFah(Fahes fahes){
         fahesRepository.save(fahes);
-        return "redirect:/fahesList";
+        return "/api/fahes/"+fahes.getNo();
     }
 
     @DeleteMapping("/api/fahes/{fahNo}")
     public String deleteFah(@PathVariable Long fahNo){
         fahesRepository.deleteById(fahNo);
         return "redirect:/fahesList";
+    }
+
+    @PutMapping("/api/fahes/{fahNo}")
+    public String updateFahUpdate(@PathVariable Long fahNo,String name,String explanation){
+
+        Fahes fahes = new Fahes(name,explanation);
+        return "/api/fahes/"+fahNo;
+    }
+
+    @PatchMapping("/api/fahes/{fahNo}")
+    public String patchFahPatch(@PathVariable Long fahNo, String name, String explanation){
+
+        Fahes fahes =  fahesRepository.findOne(fahNo);
+        fahes.setName(name);
+        fahes.setExplanation(explanation);
+
+        return "/api/fahes/"+fahNo;
     }
 
 }
