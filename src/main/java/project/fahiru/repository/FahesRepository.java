@@ -18,7 +18,7 @@ import java.util.List;
 public class FahesRepository{
 
     private final EntityManager em;
-    private JPAQueryFactory factory = new JPAQueryFactory(em);
+    private JPAQueryFactory factory;
 
     public void save(Fahes fahes){
         em.persist(fahes);
@@ -30,6 +30,7 @@ public class FahesRepository{
 
     public List<Fahes> findAll (){
 
+        factory = new JPAQueryFactory(em);
         QFahes fahes = QFahes.fahes;
         List<Fahes> fahList = factory.selectFrom(fahes).orderBy(fahes.no.desc()).fetch();
 
@@ -39,6 +40,7 @@ public class FahesRepository{
 
     public Long deleteById(Long fahNo){
 
+        factory = new JPAQueryFactory(em);
         QFahes fahes = QFahes.fahes;
         BooleanBuilder builder = new BooleanBuilder();
 
