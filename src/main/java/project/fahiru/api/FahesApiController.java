@@ -23,30 +23,37 @@ public class FahesApiController {
 
     FahesService fahesService;
 
-    @GetMapping("/api/fahesList")
+    @GetMapping("/api/fahes/list")
     public String list(Model model) {
         List<Fahes> fahesList = fahesRepository.findAll();
         model.addAttribute("fahesList", fahesList);
         return "fahesList";
     }
 
+    @GetMapping("/api/fahes/view/{fahNo}")
+    public String view(Model model,@PathVariable Long fahNo){
+        Fahes fahes = fahesRepository.findOne(fahNo);
+        model.addAttribute("fah",fahes);
+        return "fahesView";
+    }
+
     @PostMapping("/api/fahes")
     public String saveFah(Fahes fahes){
         fahesRepository.save(fahes);
-        return "/api/fahes/"+fahes.getNo();
+        return "redirect:/api/fahes/"+fahes.getNo();
     }
 
     @DeleteMapping("/api/fahes/{fahNo}")
     public String deleteFah(@PathVariable Long fahNo){
         fahesRepository.deleteById(fahNo);
-        return "redirect:/fahesList";
+        return "redirect:/api/fahes/list";
     }
 
     @PutMapping("/api/fahes/{fahNo}")
     public String updateFahUpdate(@PathVariable Long fahNo,String name,String explanation){
 
         Fahes fahes = new Fahes(name,explanation);
-        return "/api/fahes/"+fahNo;
+        return "redirect:/api/fahes/view/"+fahNo;
     }
 
     @PatchMapping("/api/fahes/{fahNo}")
@@ -56,7 +63,7 @@ public class FahesApiController {
         fahes.setName(name);
         fahes.setExplanation(explanation);
 
-        return "/api/fahes/"+fahNo;
+        return "redirect:/api/fahes/view/"+fahNo;
     }
 
 }
