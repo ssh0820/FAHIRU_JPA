@@ -34,7 +34,7 @@ public class Spots {
 
     private String parking;
 
-    private String group;
+    private String groupName;
 
     private double taste;
 
