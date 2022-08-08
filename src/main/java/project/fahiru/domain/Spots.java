@@ -53,4 +53,6 @@ public class Spots {
     @OneToMany(mappedBy = "spots")
     private List<FoodDetail> foodDetailList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "spots")
+    private List<SpotsImg> spotsImgList = new ArrayList<>();
 }
