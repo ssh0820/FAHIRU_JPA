@@ -43,4 +43,7 @@ public class Fahes {
         this.name = name;
         this.explanation = explanation;
     }
+
+    @OneToMany(mappedBy = "fahes")
+    private List<FahesImg> fahesImgList = new ArrayList<>();
 }
