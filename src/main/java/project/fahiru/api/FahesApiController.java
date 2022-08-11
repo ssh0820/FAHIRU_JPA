@@ -25,16 +25,16 @@ public class FahesApiController {
 
     @GetMapping("/api/fahes/list")
     public String list(Model model) {
-        List<Fahes> fahesList = fahesRepository.findAll();
-        model.addAttribute("fahesList", fahesList);
-        return "fahesList";
+        List<Fahes> fahList = fahesRepository.findAll();
+        model.addAttribute("fahList", fahList);
+        return "fahes/fahList";
     }
 
     @GetMapping("/api/fahes/view/{fahNo}")
     public String view(Model model,@PathVariable Long fahNo){
         Fahes fahes = fahesRepository.findOne(fahNo);
         model.addAttribute("fah",fahes);
-        return "fahesView";
+        return "fahes/fahView";
     }
 
     @PostMapping("/api/fahes")
