@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import project.fahiru.domain.Fahes;
 import project.fahiru.domain.QFahes;
+import project.fahiru.dto.FahesSearch;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
@@ -28,11 +29,16 @@ public class FahesRepository{
         return em.find(Fahes.class,fahNo);
     }
 
-    public List<Fahes> findAll (){
+    public List<Fahes> findAll (FahesSearch fahesSearch){
 
         factory = new JPAQueryFactory(em);
         QFahes fahes = QFahes.fahes;
-        List<Fahes> fahList = factory.selectFrom(fahes).orderBy(fahes.no.desc()).fetch();
+        List<Fahes> fahList = factory.selectFrom(fahes)
+                .where(
+                        fahes.name.eq(fahesSearch.getName())
+                      , fahes.explanation.eq(fahesSearch.getExplanation())
+                )
+                .orderBy(fahes.no.desc()).fetch();
 
         return fahList;
 

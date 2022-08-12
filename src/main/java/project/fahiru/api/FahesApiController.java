@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project.fahiru.domain.Fahes;
+import project.fahiru.dto.FahesSearch;
 import project.fahiru.repository.FahesRepository;
 import project.fahiru.service.FahesService;
 
@@ -24,8 +25,8 @@ public class FahesApiController {
     FahesService fahesService;
 
     @GetMapping("/api/fahes/list")
-    public String list(Model model) {
-        List<Fahes> fahList = fahesRepository.findAll();
+    public String list(FahesSearch fahesSearch, Model model) {
+        List<Fahes> fahList = fahesRepository.findAll(fahesSearch);
         model.addAttribute("fahList", fahList);
         return "fahes/fahList";
     }
@@ -49,20 +50,10 @@ public class FahesApiController {
         return "redirect:/api/fahes/list";
     }
 
-    @PutMapping("/api/fahes/{fahNo}")
+    @PostMapping("/api/fahes/{fahNo}")
     public String updateFahUpdate(@PathVariable Long fahNo,String name,String explanation){
 
         Fahes fahes = new Fahes(name,explanation);
-        return "redirect:/api/fahes/view/"+fahNo;
-    }
-
-    @PatchMapping("/api/fahes/{fahNo}")
-    public String patchFahPatch(@PathVariable Long fahNo, String name, String explanation){
-
-        Fahes fahes =  fahesRepository.findOne(fahNo);
-        fahes.setName(name);
-        fahes.setExplanation(explanation);
-
         return "redirect:/api/fahes/view/"+fahNo;
     }
 
