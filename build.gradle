@@ -76,6 +76,10 @@ configurations {
 	}
 	querydsl.extendsFrom compileClasspath
 }
+
+compileQuerydsl.doFirst {
+	if(file(querydslDir).exists()) delete(file(querydslDir))
+}
 compileKotlin {
 	kotlinOptions {
 		jvmTarget = "1.8"
