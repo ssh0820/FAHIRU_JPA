@@ -18,7 +18,7 @@ import java.util.List;
 
 @Entity
 @RequiredArgsConstructor
-@Getter @Setter
+@Getter
 public class Fahes {
 
     @Id @GeneratedValue
