@@ -25,5 +25,11 @@ public class TrendyFoodCookApiController {
         return "trendy/foodCookList";
     }
 
+    @GetMapping("/api/trendy/view/{cookNo}")
+    public String view(@PathVariable Long cookNo, Model model){
+
+        return "trendy/foodCookView/"+cookNo;
+    }
+
 }
 
