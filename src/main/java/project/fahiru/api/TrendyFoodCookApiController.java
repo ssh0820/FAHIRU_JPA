@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import project.fahiru.domain.TrendyFoodCook;
+import project.fahiru.dto.TrendySearch;
 import project.fahiru.repository.TrendyFoodCookRepository;
 
 import java.util.List;
@@ -18,8 +19,8 @@ public class TrendyFoodCookApiController {
     TrendyFoodCookRepository trendyFoodCookRepository;
 
     @GetMapping("/api/trendy/list")
-    public String list(Model model){
-        List<TrendyFoodCook> trendyFoodCookList = trendyFoodCookRepository.findAll();
+    public String list(TrendySearch trendySearch, Model model ){
+        List<TrendyFoodCook> trendyFoodCookList = trendyFoodCookRepository.findAll(trendySearch);
         model.addAttribute("trendyFoodCookList",trendyFoodCookList);
 
         return "trendy/foodCookList";
