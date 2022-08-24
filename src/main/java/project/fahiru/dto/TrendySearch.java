@@ -9,4 +9,9 @@ public class TrendySearch {
     private Long Score;
     private String name;
 
+    public TrendySearch(Long score, String name){
+        this.Score = score;
+        this.name = name;
+    }
+
 }
