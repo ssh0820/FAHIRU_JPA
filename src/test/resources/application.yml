@@ -1,0 +1,17 @@
+spring:
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        #        show_sql: true
+        format_sql: true
+        default_batch_fetch_size: 1000 #최적화 옵션
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+logging.level:
+  org.hibernate.SQL: debug
+#  org.hibernate.type: trace
