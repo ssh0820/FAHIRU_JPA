@@ -51,9 +51,9 @@ public class FahesApiController {
     }
 
     @PostMapping("/api/fahes/{fahNo}")
-    public String updateFahUpdate(@PathVariable Long fahNo,String name,String explanation){
+    public String updateFah(@PathVariable Long fahNo,FahesSearch fahesSearch){
 
-        Fahes fahes = new Fahes(name,explanation);
+        Fahes fahes = new Fahes(fahesSearch.getName(),fahesSearch.getExplanation());
         return "redirect:/api/fahes/view/"+fahNo;
     }
 
