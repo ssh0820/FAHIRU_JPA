@@ -36,4 +36,10 @@ public class TrendyFoodCook {
     @Embedded
     private RegistInformation registInformation;
 
+    //TrendyFoodCook 수정 생성자( name, score )
+    public TrendyFoodCook(String name, Long score){
+        this.name = name;
+        this.score = score;
+    }
+
 }
