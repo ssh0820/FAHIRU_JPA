@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project.fahiru.domain.Fahes;
+import project.fahiru.dto.FahesResponseDto;
 import project.fahiru.dto.FahesSearch;
 import project.fahiru.repository.FahesRepository;
 import project.fahiru.service.FahesService;
@@ -20,42 +21,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class FahesApiController {
 
-    FahesRepository fahesRepository;
-
     FahesService fahesService;
-
-    @GetMapping("/api/fahes/list")
-    public String list(FahesSearch fahesSearch, Model model) {
-        List<Fahes> fahList = fahesRepository.findAll(fahesSearch);
-        model.addAttribute("fahList", fahList);
-        return "fahes/fahList";
-    }
-
-    @GetMapping("/api/fahes/view/{fahNo}")
-    public String view(Model model,@PathVariable Long fahNo){
-        Fahes fahes = fahesRepository.findOne(fahNo);
-        model.addAttribute("fah",fahes);
-        return "fahes/fahView";
-    }
-
-    @PostMapping("/api/fahes")
-    public String saveFah(Fahes fahes){
-        fahesRepository.save(fahes);
-        return "redirect:/api/fahes/"+fahes.getNo();
-    }
-
-    @DeleteMapping("/api/fahes/{fahNo}")
-    public String deleteFah(@PathVariable Long fahNo){
-        fahesRepository.deleteById(fahNo);
-        return "redirect:/api/fahes/list";
-    }
-
-    @PostMapping("/api/fahes/{fahNo}")
-    public String updateFah(@PathVariable Long fahNo,FahesSearch fahesSearch){
-
-        Fahes fahes = new Fahes(fahesSearch.getName(),fahesSearch.getExplanation());
-        return "redirect:/api/fahes/view/"+fahNo;
-    }
 
 }
 
