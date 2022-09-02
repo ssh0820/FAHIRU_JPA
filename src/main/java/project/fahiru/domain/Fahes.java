@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,8 +30,7 @@ public class Fahes {
 
     private String explanation;
 
-    @Embedded
-    private RegistInformation registInformation;
+    private LocalDateTime regdate;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Users users;
@@ -38,8 +38,8 @@ public class Fahes {
     @OneToMany(mappedBy = "fahes")
     private List<CategoryFah> CategoryFah = new ArrayList<>();
 
-    //fahes 수정 생성자( name, explanation )
-    public Fahes(String name, String explanation){
+    //fahes 수정( name, explanation )
+    public void fahUpdate(String name, String explanation){
         this.name = name;
         this.explanation = explanation;
     }

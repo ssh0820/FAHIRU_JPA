@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @RequiredArgsConstructor
 @Getter
-public class FahesResponseDto {
+public class FahesSaveDto {
 
     private Long no;
     private String name;
@@ -16,7 +16,7 @@ public class FahesResponseDto {
     private Long regUser;
     private LocalDateTime regdate;
 
-    public FahesResponseDto(Fahes fahes){
+    public FahesSaveDto(Fahes fahes){
         this.no = fahes.getNo();
         this.name = fahes.getName();
         this.explanation = fahes.getExplanation();
